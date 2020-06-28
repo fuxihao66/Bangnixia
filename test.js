@@ -15,7 +15,7 @@ function AddToStr(para){
             var el = document.createElement( 'html' );
             el.innerHTML = htmlObj;
     
-            dlist = el.getElementsByClassName( 'download_group' ); 
+            var dlist = el.getElementsByClassName( 'download_group' ); 
 
             // 最后需要的下载连接
             link = dlist[0].children[1].firstElementChild.getAttribute("href");
@@ -37,6 +37,10 @@ var objList = document.getElementsByClassName("table table-striped")[0].getEleme
 var totalDownStr = new String("")
 var linkArray = [];
 for  (var obj of objList){
-    var link = obj.getElementsByClassName("text-white")[0].getAttribute("href");
-    AddToStr(link);
+    var downBtn = obj.getElementsByClassName("text-white");
+    if (downBtn.length != 0){
+        var link = downBtn[0].getAttribute("href");
+        AddToStr(link);
+    }
+    
 }
